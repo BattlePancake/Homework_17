@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework_17.Factory;
+﻿using Homework_17.Factory;
 using Homework_17.Pages;
 
 namespace Homework_17.Tests
@@ -21,15 +16,13 @@ namespace Homework_17.Tests
             dropdownPage.ClickDropdown();
             dropdownPage.ChooseOptionOne();
 
-            var firstValue = dropdownPage.GetAttributeOptionOne();
-            var result = firstValue.Equals("1");
+            var result = dropdownPage.GetAttributeOptionOne().Equals("1");
             Assert.That(result, Is.True);
 
             dropdownPage.ClickDropdown();
             dropdownPage.ChooseOptionTwo();
 
-            var secondValue = dropdownPage.GetAttributeOptionTwo();
-            var result1 = secondValue.Equals("2");
+            var result1 = dropdownPage.GetAttributeOptionTwo().Equals("2");
             Assert.That(result1, Is.True);
         }
 

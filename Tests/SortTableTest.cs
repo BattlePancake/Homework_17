@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework_17.Factory;
+﻿using Homework_17.Factory;
 using Homework_17.Pages;
-using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
 
 namespace Homework_17.Tests
 {
@@ -20,20 +13,16 @@ namespace Homework_17.Tests
         {
             var sortTablePage = new SortTablePage();
 
-            var text1 = sortTablePage.ElementOne.Text;
-            var result1 = text1.Equals(sortTablePage.elementOne);
+            var result1 = sortTablePage.CompareElement(1);
             Assert.That(result1, Is.True);
 
-            var text2 = sortTablePage.ElementTwo.Text;
-            var result2 = text2.Equals(sortTablePage.elementTwo);
+            var result2 = sortTablePage.CompareElement(2);
             Assert.That(result2, Is.True);
-  
-            var text3 = sortTablePage.ElementThree.Text;
-            var result3 = text3.Equals(sortTablePage.elementThree);
+
+            var result3 = sortTablePage.CompareElement(3);
             Assert.That(result3, Is.True);
 
-            var text4 = sortTablePage.ElementFour.Text;
-            var result4 = text4.Equals(sortTablePage.elementFour);
+            var result4 = sortTablePage.CompareElement(4);
             Assert.That(result4, Is.True);
         }
 

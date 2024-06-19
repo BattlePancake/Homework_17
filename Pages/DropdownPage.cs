@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework_17.Factory;
+﻿using Homework_17.Factory;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
@@ -16,17 +11,16 @@ namespace Homework_17.Pages
             Driver.GetDriver().Navigate().GoToUrl("https://the-internet.herokuapp.com/dropdown");
         }
 
-        public IWebElement dropdown = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id ='dropdown']")));
+        private static IWebElement dropdown = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id ='dropdown']")));
+        private static IWebElement optionOne = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id ='dropdown']/option[2]")));
+        private static IWebElement optionTwo = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id ='dropdown']/option[3]")));
+
         public void ClickDropdown() => dropdown.Click();
+        public void ChooseOptionOne() => optionOne.Click();
+        public void ChooseOptionTwo() => optionTwo.Click();
 
-        public IWebElement OptionOne = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id ='dropdown']/option[2]")));
-        public IWebElement OptionTwo = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id ='dropdown']/option[3]")));
-
-        public void ChooseOptionOne() => OptionOne.Click();
-        public void ChooseOptionTwo() => OptionTwo.Click();
-
-        public string GetAttributeOptionOne() => OptionOne.GetAttribute("value");
-        public string GetAttributeOptionTwo() => OptionTwo.GetAttribute("value");
+        public string GetAttributeOptionOne() => optionOne.GetAttribute("value");
+        public string GetAttributeOptionTwo() => optionTwo.GetAttribute("value");
     }
 }
 

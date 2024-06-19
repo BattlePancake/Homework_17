@@ -1,10 +1,7 @@
-﻿using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
+﻿using OpenQA.Selenium;
 using Homework_17.Factory;
 using Homework_17.Pages;
-//Homework Lesson 18
+
 namespace Homework_17.Tests
 {
     public class AddRemoveTest
@@ -21,6 +18,7 @@ namespace Homework_17.Tests
             addRemovePage.DeleteElement();
             var visible1 = addRemovePage.IsFirstElementVisible();
             Assert.That(visible1, Is.True);
+
             var visible2 = false;
             try
             {

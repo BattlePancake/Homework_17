@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework_17.Factory;
+﻿using Homework_17.Factory;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
@@ -16,10 +11,12 @@ namespace Homework_17.Pages
             Driver.GetDriver().Navigate().GoToUrl("https://the-internet.herokuapp.com/inputs");
         }
 
-        public IWebElement inputField = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@type ='number']")));
+        private static IWebElement inputField = Driver.GetWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@type ='number']")));
 
         public void ClickArrowUp() => inputField.SendKeys(Keys.ArrowUp);
         public void ClickArrowDown() => inputField.SendKeys(Keys.ArrowDown);
+        public string GetFieldValue() => inputField.GetAttribute("value");
+
         public void ClearField()
         {
             for(int a = 0; a < 5; a++)
@@ -27,6 +24,10 @@ namespace Homework_17.Pages
                 inputField.SendKeys(Keys.Backspace);
             }
         }
-        public string GetFieldValue() => inputField.GetAttribute("value");
+        
+        public void EnterIntoTheField(string n)
+        {
+            inputField.SendKeys(n);
+        }
     }
 }

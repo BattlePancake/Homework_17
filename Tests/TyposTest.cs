@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework_17.Factory;
+﻿using Homework_17.Factory;
 using Homework_17.Pages;
 
 namespace Homework_17.Tests
@@ -19,12 +14,10 @@ namespace Homework_17.Tests
         {
             var typosPage = new TyposPage();
 
-            var text1 = typosPage.StringOne.Text;
-            var result1 = text1.Equals(typosPage.referenceStringOne);
+            var result1 = typosPage.CompareText(typosPage.StringOne());
             Assert.That(result1, Is.True);
 
-            var text2 = typosPage.StringTwo.Text;
-            var result2 = text2.Equals(typosPage.referenceStringTwo);
+            var result2 = typosPage.CompareText(typosPage.StringTwo());
             Assert.That(result2, Is.True);
         }
 

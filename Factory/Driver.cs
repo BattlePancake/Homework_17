@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace Homework_17.Factory
@@ -14,10 +8,7 @@ namespace Homework_17.Factory
     {
         private static IWebDriver? _driver;
         private static WebDriverWait? _wait;
-
-        Actions action = new Actions(_driver);
         
-
         public static WebDriverWait GetWait(int v) => _wait ??= new(_driver, TimeSpan.FromSeconds(v));
 
         public static IWebDriver GetDriver() => _driver ??= SetupDriver();
